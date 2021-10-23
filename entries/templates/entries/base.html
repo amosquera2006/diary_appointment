@@ -1,0 +1,33 @@
+<!-- entries/templates/entries/base.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment</title>
+    <link rel="stylesheet" href="{% static 'css/diary.css' %}">
+</head>
+
+<body>
+<h1><a href="/">Dear diary/ Appointment .. I don't like this guys …</a></h1>
+<h3><a href="/">The Admin username is: antonio, Password is: 1234</a></h3>
+{% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+        <li class="message">
+            {{ message }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+<hr>
+<a href="{% url 'admin:logout' %}">Logout</a>
+
+</body>
+
+</html>
